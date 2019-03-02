@@ -14,7 +14,7 @@ import './widget.scss';
 /**
  * Code
  */
-const Header = ({ companyName, companyLogo }) => {
+const Header = ({ companyName, companyLogo, onClickPrev, onClickNext }) => {
   /* eslint-disable global-require */
   // eslint-disable-next-line import/no-dynamic-require
   const companyLogoImg = require(`../../assets/${companyLogo}`);
@@ -30,8 +30,8 @@ const Header = ({ companyName, companyLogo }) => {
           <img src={companyLogoImg} alt={`logo ${companyName}`} />
           <h1 className="widget__title">{companyName}</h1>
         </a>
-        <LeftArrowButton />
-        <RightArrowButton />
+        <LeftArrowButton onClickLeft={onClickPrev} />
+        <RightArrowButton onClickRight={onClickNext} />
       </header>
     </div>
   );
@@ -40,6 +40,8 @@ const Header = ({ companyName, companyLogo }) => {
 Header.propTypes = {
   companyName: PropTypes.string.isRequired,
   companyLogo: PropTypes.string.isRequired,
+  onClickPrev: PropTypes.func.isRequired,
+  onClickNext: PropTypes.func.isRequired,
 };
 
 /**
