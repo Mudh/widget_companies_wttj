@@ -1,9 +1,44 @@
+@import "../../styles/functions";
 @import "../../styles/mediaqueries";
+@import "../../styles/colors";
 
-.buttons {
-  margin: 2em auto;
+.button {
+  padding: 0;
 
-  @media #{$large} {
-    max-width: 1280px;
+  &__arrow {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: $navButtonColor;
+    border: none;
+    border-radius: 100%;
+    margin: 0 rem(8);
+    width: rem(35);
+    height: rem(35);
+    overflow: hidden;
+
+    &:hover:before {
+      transform: scale(1);
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      background: rgba(255, 255, 255, 0.05);
+      top: 0;
+      left: 0;
+      width: rem(35);
+      height: rem(35);
+      z-index: 1;
+      transform: scaleX(0);
+      transform-origin: 0px center;
+      transition: all 0.3s cubic-bezier(0.41, 0.094, 0.54, 0.07) 0s;
+    }
+
+    & svg {
+      position: relative;
+      fill: $navButtonSvg;
+      z-index: 10;
+    }
   }
 }

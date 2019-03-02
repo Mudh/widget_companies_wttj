@@ -9,7 +9,7 @@ import { LeftArrowButton, RightArrowButton } from '../Buttons';
  */
 
 // Styles
-import './widget.scss';
+// import './widget.scss';
 
 /**
  * Code
@@ -22,6 +22,7 @@ const Header = ({ companyName, companyLogo, onClickPrev, onClickNext }) => {
   return (
     <header className="widget__header">
       <a
+        className="widget__company-link"
         href="https://www.welcometothejungle.co/companies/wttj"
         rel="noopener noreferrer"
         target="_blank"
@@ -29,8 +30,10 @@ const Header = ({ companyName, companyLogo, onClickPrev, onClickNext }) => {
         <img src={companyLogoImg} alt={`logo ${companyName}`} />
         <h1 className="widget__title">{companyName}</h1>
       </a>
-      <LeftArrowButton onClickLeft={onClickPrev} />
-      <RightArrowButton onClickRight={onClickNext} />
+      <div className="widget__controls">
+        <LeftArrowButton onClickLeft={onClickPrev} />
+        <RightArrowButton onClickRight={onClickNext} />
+      </div>
     </header>
   );
 };
