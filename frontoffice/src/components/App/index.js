@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 /**
  * Local import
  */
-
+import Widget from '../Widget';
 // Styles
 import './app.scss';
 
@@ -15,7 +15,6 @@ import './app.scss';
  */
 class App extends React.Component {
   static propTypes = {
-    message: PropTypes.string.isRequired,
     onClickChangeMessage: PropTypes.func.isRequired,
     apiCall: PropTypes.func.isRequired,
   };
@@ -26,10 +25,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { message, onClickChangeMessage } = this.props;
+    const { onClickChangeMessage } = this.props;
     return (
       <div id="app" onClick={onClickChangeMessage}>
-        {message}
+        <Widget />
       </div>
     );
   }
