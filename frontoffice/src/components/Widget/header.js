@@ -20,20 +20,18 @@ const Header = ({ companyName, companyLogo, onClickPrev, onClickNext }) => {
   const companyLogoImg = require(`../../assets/${companyLogo}`);
   /* eslint-enable global-require */
   return (
-    <div className="widget">
-      <header className="widget__header">
-        <a
-          href="https://www.welcometothejungle.co/companies/wttj"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <img src={companyLogoImg} alt={`logo ${companyName}`} />
-          <h1 className="widget__title">{companyName}</h1>
-        </a>
-        <LeftArrowButton onClickLeft={onClickPrev} />
-        <RightArrowButton onClickRight={onClickNext} />
-      </header>
-    </div>
+    <header className="widget__header">
+      <a
+        href="https://www.welcometothejungle.co/companies/wttj"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img src={companyLogoImg} alt={`logo ${companyName}`} />
+        <h1 className="widget__title">{companyName}</h1>
+      </a>
+      <LeftArrowButton onClickLeft={onClickPrev} />
+      <RightArrowButton onClickRight={onClickNext} />
+    </header>
   );
 };
 

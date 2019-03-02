@@ -17,24 +17,22 @@ const Footer = () => {
   const wttjLogo = require('../../assets/wttj-long.svg');
   /* eslint-enable global-require */
   return (
-    <div className="widget">
-      <footer className="widget__footer">
-        <a
-          href="https://www.welcometothejungle.co"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <img src={wttjLogo} alt="logo welcome to the jungle" />
-        </a>
-        <a
-          href="https://www.welcometothejungle.co"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Voir le profil >
-        </a>
-      </footer>
-    </div>
+    <footer className="widget__footer">
+      <a
+        href="https://www.welcometothejungle.co"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img src={wttjLogo} alt="logo welcome to the jungle" />
+      </a>
+      <a
+        href="https://www.welcometothejungle.co"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Voir le profil >
+      </a>
+    </footer>
   );
 };
 /**
