@@ -16,6 +16,7 @@ import './widget.scss';
  */
 const Header = ({ companyName, companyLogo }) => {
   /* eslint-disable global-require */
+  // eslint-disable-next-line import/no-dynamic-require
   const companyLogoImg = require(`../../assets/${companyLogo}`);
   /* eslint-enable global-require */
   return (
