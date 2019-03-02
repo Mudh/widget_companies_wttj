@@ -8,6 +8,7 @@ import company from '../../data/company';
  * Local import
  */
 import Header from './header';
+import Footer from './footer';
 // Styles
 import './widget.scss';
 
@@ -28,6 +29,7 @@ class Widget extends React.Component {
     return (
       <div className="widget">
         <Header companyName={companyName} companyLogo={companyLogo} />
+        <Footer />
       </div>
     );
   }
