@@ -35,7 +35,40 @@
   }
 
   &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 10px;
     text-transform: uppercase;
+  }
+
+  &__wttj-link,
+  &__wttj-link img {
+    height: 100%;
+  }
+
+  &__profil-link {
+    display: flex;
+    align-items: center;
+    font-size: rem(14.5);
+
+    span {
+      margin-right: rem(8);
+    }
+
+    svg {
+      fill: $textColor;
+    }
+
+    &:hover {
+      color: $profilLinkHover;
+      svg {
+        fill: $profilLinkHover;
+        transition: all 0.18s ease-in 0s;
+      }
+      transition: all 0.18s ease-in 0s;
+    }
   }
 
   @media #{$large} {
