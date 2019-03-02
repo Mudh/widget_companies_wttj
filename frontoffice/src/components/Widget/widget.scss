@@ -71,6 +71,11 @@
     }
   }
 
+  .swiper-pagination-progressbar {
+    height: 4px;
+    background-color: $profilLinkHover;
+  }
+
   @media #{$large} {
     max-width: 1280px;
   }

@@ -46,7 +46,7 @@ class Widget extends React.Component {
     const params = {
       pagination: {
         el: '.swiper-pagination',
-        type: 'bullets',
+        type: 'progressbar',
         clickable: true,
       },
     };
