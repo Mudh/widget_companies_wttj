@@ -43,13 +43,24 @@ class Widget extends React.Component {
 
   render() {
     const { companyName, companyLogo } = company;
+    const row = 2;
+    const column = 3;
     const params = {
+      speed: 1000,
+      slidesPerView: column,
+      slidesPerGroup: column,
+      slidesPerColumn: row,
       pagination: {
         el: '.swiper-pagination',
         type: 'progressbar',
         clickable: true,
       },
     };
+
+    const slideStyle = {
+      height: `calc(100% / ${row})`,
+    };
+
     return (
       <div className="widget">
         <Header
@@ -64,11 +75,30 @@ class Widget extends React.Component {
             if (node) this.swiper = node.swiper;
           }}
         >
-          <div>Slide 1</div>
-          <div>Slide 2</div>
-          <div>Slide 3</div>
-          <div>Slide 4</div>
-          <div>Slide 5</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
+          <div style={slideStyle}>Slide 1</div>
         </Swiper>
         <Footer />
       </div>

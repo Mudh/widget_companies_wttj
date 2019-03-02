@@ -71,9 +71,39 @@
     }
   }
 
+  .swiper-container {
+    position: relative;
+    overflow: hidden;
+    height: 700px;
+  }
+
+  .swiper-wrapper {
+    height: calc(100% - 4px);
+  }
+
   .swiper-pagination-progressbar {
+    position: absolute;
+    top: auto;
+    left: 0;
     height: 4px;
-    background-color: $profilLinkHover;
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    bottom: 4px;
+  }
+
+  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: $profilLinkHover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: left top;
+  }
+
+  .swiper-slide {
+    display: inline-flex;
+    background-color: rgb(255, 181, 22);
   }
 
   @media #{$large} {
