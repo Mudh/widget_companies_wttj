@@ -27,7 +27,7 @@ const Header = ({ companyName, companyLogo }) => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src={companyLogoImg} alt="" />
+          <img src={companyLogoImg} alt={`logo ${companyName}`} />
           <h1 className="widget__title">{companyName}</h1>
         </a>
         <LeftArrowButton />
