@@ -1,7 +1,80 @@
+@import "../../styles/functions";
 @import "../../styles/mediaqueries";
+@import "../../styles/colors";
 
 .widget {
   width: 100%;
+  background-color: $backgroundColor;
+  color: $textColor;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+  }
+
+  &__title {
+    font-size: 1.1875rem;
+  }
+
+  &__company-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      margin-right: rem(13px);
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+
+  &__wttj-link,
+  &__wttj-link img {
+    height: 100%;
+  }
+
+  &__profil-link {
+    display: flex;
+    align-items: center;
+    font-size: rem(14.5);
+
+    span {
+      margin-right: rem(8);
+    }
+
+    svg {
+      fill: $textColor;
+    }
+
+    &:hover {
+      color: $profilLinkHover;
+      svg {
+        fill: $profilLinkHover;
+        transition: all 0.18s ease-in 0s;
+      }
+      transition: all 0.18s ease-in 0s;
+    }
+  }
+
+  .swiper-pagination-progressbar {
+    height: 4px;
+    background-color: $profilLinkHover;
+  }
 
   @media #{$large} {
     max-width: 1280px;
