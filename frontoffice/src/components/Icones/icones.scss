@@ -1,0 +1,39 @@
+@import "../../styles/functions";
+@import "../../styles/mediaqueries";
+@import "../../styles/colors";
+
+.icone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $greenWttj;
+  border-radius: 100%;
+
+  &--play {
+    width: 35px;
+    height: 35px;
+
+    svg {
+      fill: $iconSvgWhite;
+    }
+  }
+
+  &--search {
+    width: 35px;
+    height: 35px;
+
+    svg {
+      fill: $iconSvgWhite;
+    }
+  }
+
+  &--quote {
+    background-color: transparent;
+    width: 35px;
+    height: 35px;
+
+    svg {
+      fill: $iconSvgGrey;
+    }
+  }
+}
