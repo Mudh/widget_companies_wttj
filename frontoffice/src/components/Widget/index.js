@@ -8,8 +8,8 @@ import company from '../../data/company';
 /**
  * Local import
  */
-import Header from './header';
-import Footer from './footer';
+import WidgetHeader from './header';
+import WidgetFooter from './footer';
 // Styles
 import './widget.scss';
 
@@ -63,7 +63,7 @@ class Widget extends React.Component {
 
     return (
       <div className="widget">
-        <Header
+        <WidgetHeader
           onClickPrev={this.handleOnClickPrev}
           onClickNext={this.handleOnClickNext}
           companyName={companyName}
@@ -100,7 +100,7 @@ class Widget extends React.Component {
           <div style={slideStyle}>Slide 1</div>
           <div style={slideStyle}>Slide 1</div>
         </Swiper>
-        <Footer />
+        <WidgetFooter />
       </div>
     );
   }

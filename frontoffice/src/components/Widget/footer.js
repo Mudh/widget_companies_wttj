@@ -12,7 +12,7 @@ import './widget.scss';
 /**
  * Code
  */
-const Footer = () => {
+const WidgetFooter = () => {
   /* eslint-disable global-require */
   const wttjLogo = require('../../assets/wttj-long.svg');
   /* eslint-enable global-require */
@@ -47,4 +47,4 @@ const Footer = () => {
 /**
  * Export
  */
-export default Footer;
+export default WidgetFooter;

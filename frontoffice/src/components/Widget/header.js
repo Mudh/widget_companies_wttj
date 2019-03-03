@@ -14,7 +14,12 @@ import { LeftArrowButton, RightArrowButton } from '../Buttons';
 /**
  * Code
  */
-const Header = ({ companyName, companyLogo, onClickPrev, onClickNext }) => {
+const WidgetHeader = ({
+  companyName,
+  companyLogo,
+  onClickPrev,
+  onClickNext,
+}) => {
   /* eslint-disable global-require */
   // eslint-disable-next-line import/no-dynamic-require
   const companyLogoImg = require(`../../assets/${companyLogo}`);
@@ -38,7 +43,7 @@ const Header = ({ companyName, companyLogo, onClickPrev, onClickNext }) => {
   );
 };
 
-Header.propTypes = {
+WidgetHeader.propTypes = {
   companyName: PropTypes.string.isRequired,
   companyLogo: PropTypes.string.isRequired,
   onClickPrev: PropTypes.func.isRequired,
@@ -48,4 +53,4 @@ Header.propTypes = {
 /**
  * Export
  */
-export default Header;
+export default WidgetHeader;
