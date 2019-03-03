@@ -71,8 +71,21 @@
     }
   }
 
+  &__bloc--image,
+  &__bloc--video,
+  &__bloc--quote {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__bloc--quote {
+    width: 100%;
+    height: 100%;
+  }
+
   .swiper-container {
     position: relative;
+    background-color: $darkGreyWttj;
     overflow: hidden;
     height: 700px;
   }
@@ -103,7 +116,7 @@
 
   .swiper-slide {
     display: inline-flex;
-    background-color: rgb(255, 181, 22);
+    vertical-align: middle;
   }
 
   @media #{$large} {

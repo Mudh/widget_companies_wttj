@@ -10,6 +10,7 @@ import company from '../../data/company';
  */
 import WidgetHeader from './header';
 import WidgetFooter from './footer';
+import WidgetCustomBloc from './customBloc';
 // Styles
 import './widget.scss';
 
@@ -42,7 +43,7 @@ class Widget extends React.Component {
   }
 
   render() {
-    const { companyName, companyLogo } = company;
+    const { companyName, companyLogo, widgetBlocs } = company;
     const row = 2;
     const column = 3;
     const params = {
@@ -57,7 +58,7 @@ class Widget extends React.Component {
       },
     };
 
-    const slideStyle = {
+    const blocStyle = {
       height: `calc(100% / ${row})`,
     };
 
@@ -75,30 +76,11 @@ class Widget extends React.Component {
             if (node) this.swiper = node.swiper;
           }}
         >
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
-          <div style={slideStyle}>Slide 1</div>
+          {widgetBlocs.map(bloc => (
+            <div style={blocStyle}>
+              <WidgetCustomBloc {...bloc} />
+            </div>
+          ))}
         </Swiper>
         <WidgetFooter />
       </div>
