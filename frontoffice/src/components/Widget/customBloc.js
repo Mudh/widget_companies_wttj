@@ -26,12 +26,19 @@ class WidgetCustomBloc extends React.Component {
   };
 
   render() {
-    const { blocType } = this.props;
+    const { blocType, thumbnail } = this.props;
+
+    // Dynamic path for thumbnail
     /* eslint-disable global-require */
-    // eslint-disable-next-line import/no-dynamic-require
-    // const companyLogoImg = require(`../../assets/${companyLogo}`);
+    const thumbnailPath = thumbnail
+      ? // eslint-disable-next-line import/no-dynamic-require
+        require(`../../assets/${thumbnail}`)
+      : null; // Return null to avoid render error
     /* eslint-enable global-require */
-    console.log('blocType', blocType);
+
+    const blocStyle = {
+      background: `url(${thumbnailPath}) no-repeat center center/cover`,
+    };
 
     return (
       <a
@@ -40,7 +47,10 @@ class WidgetCustomBloc extends React.Component {
         rel="noopener noreferrer"
         target="_blank"
       >
-        <div>{this.customComponent(blocType)}</div>
+        {thumbnail && <div className="bloc__bg" style={blocStyle} />}
+        <span className={`bloc__${blocType}`}>
+          {this.customComponent(blocType)}
+        </span>
       </a>
     );
   }
@@ -48,6 +58,11 @@ class WidgetCustomBloc extends React.Component {
 
 WidgetCustomBloc.propTypes = {
   blocType: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string,
+};
+
+WidgetCustomBloc.defaultProps = {
+  thumbnail: null,
 };
 
 /**

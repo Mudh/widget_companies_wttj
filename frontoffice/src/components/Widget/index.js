@@ -12,6 +12,7 @@ import WidgetHeader from './header';
 import WidgetFooter from './footer';
 import WidgetCustomBloc from './customBloc';
 // Styles
+import 'react-id-swiper/src/styles/scss/swiper.scss';
 import './widget.scss';
 
 /**
