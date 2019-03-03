@@ -2,12 +2,6 @@
  * NPM import
  */
 import React from 'react';
-/**
- * Local import
- */
-
-// Styles
-import './widget.scss';
 
 /**
  * Code
@@ -44,6 +38,7 @@ const WidgetFooter = () => {
     </footer>
   );
 };
+
 /**
  * Export
  */

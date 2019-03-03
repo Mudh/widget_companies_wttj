@@ -4,12 +4,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LeftArrowButton, RightArrowButton } from '../Buttons';
-/**
- * Local import
- */
-
-// Styles
-// import './widget.scss';
 
 /**
  * Code
