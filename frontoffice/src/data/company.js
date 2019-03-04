@@ -60,5 +60,27 @@ export default {
       blocType: 'image',
       thumbnail: 'img11.jpg',
     },
+    {
+      blocType: 'image',
+      thumbnail: 'img13.jpg',
+    },
+    {
+      blocType: 'image',
+      thumbnail: 'img15.jpg',
+    },
+    {
+      blocType: 'video',
+      thumbnail: 'img14.jpg',
+      title: 'Mélanie Babinot',
+      position: 'Business Developer',
+    },
+    {
+      blocType: 'image',
+      thumbnail: 'img16.jpg',
+    },
+    {
+      blocType: 'image',
+      thumbnail: 'img17.jpg',
+    },
   ],
 };
