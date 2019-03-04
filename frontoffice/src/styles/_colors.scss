@@ -2,8 +2,14 @@
 * COLORS
 */
 
+//Brand
+$greenWttj: #00c29a;
+$darkGreyWttj: #373942;
+
 $backgroundColor: #1b1c20;
 $textColor: #ffffff;
 $navButtonColor: #373942;
-$navButtonSvg: $textColor;
-$profilLinkHover: rgb(0, 194, 154);
+$iconSvgWhite: $textColor;
+$iconSvgGrey: #5f6168;
+$navButtonSvg: $iconSvgWhite;
+$profilLinkHover: $greenWttj;

@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
  */
 // Composant
 import store from 'src/store';
-import App from './containers/App';
+import App from './components/App';
 // store
 
 /**

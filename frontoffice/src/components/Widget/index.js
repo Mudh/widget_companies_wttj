@@ -2,25 +2,32 @@
  * NPM import
  */
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Swiper from 'react-id-swiper';
-import company from '../../data/company';
+import uuid from 'uuid/v4';
+import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 /**
  * Local import
  */
-import Header from './header';
-import Footer from './footer';
+import WidgetHeader from './header';
+import WidgetFooter from './footer';
+import WidgetCustomBloc from './customBloc';
 // Styles
+import 'react-id-swiper/src/styles/scss/swiper.scss';
 import './widget.scss';
 
 /**
  * Code
  */
 class Widget extends React.Component {
-  // static propTypes = {
-  //   goNext: PropTypes.func.isRequired,
-  //   goPrev: PropTypes.func.isRequired,
-  // };
+  static propTypes = {
+    dataCompany: PropTypes.object.isRequired,
+    apiCall: PropTypes.func.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+  };
 
   constructor(props) {
     super(props);
@@ -30,7 +37,21 @@ class Widget extends React.Component {
   }
 
   componentDidMount() {
-    console.log('cdm', company);
+    /* 
+      This is where we load API data 
+      and dispatch action to tell redux to store it 
+      It's a fake api coming from https://jsonplaceholder.typicode.com/
+
+      The widget data are store in redux but came from 'frontoffice/src/data/company.js'
+    */
+    const { apiCall, history, location } = this.props;
+    apiCall();
+
+    // Push default column/row query on page load
+    const locationValue = location.search;
+    if (locationValue === '') {
+      history.push('/embed?columns=4&rows=2');
+    }
   }
 
   handleOnClickNext() {
@@ -42,17 +63,45 @@ class Widget extends React.Component {
   }
 
   render() {
-    const { companyName, companyLogo } = company;
+    const { dataCompany, location } = this.props;
+    const { companyName, companyLogo, widgetBlocs } = dataCompany;
+
+    // Swiper columns and rows are manage by a simple query string
+    const query = queryString.parse(location.search);
+    const row = parseInt(query.rows, 10);
+    const column = parseInt(query.columns, 10);
+
+    // Swiper params
     const params = {
+      speed: 1000,
+      slidesPerView: column,
+      slidesPerGroup: column,
+      slidesPerColumn: row,
       pagination: {
         el: '.swiper-pagination',
         type: 'progressbar',
         clickable: true,
       },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 1,
+        },
+        375: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+        },
+      },
     };
+
+    // Use a styled component for dynamic css and avoid inline style
+    const SwiperSlide = styled.div`
+      height: calc(100% / ${row});
+    `;
+
     return (
       <div className="widget">
-        <Header
+        <WidgetHeader
           onClickPrev={this.handleOnClickPrev}
           onClickNext={this.handleOnClickNext}
           companyName={companyName}
@@ -64,13 +113,13 @@ class Widget extends React.Component {
             if (node) this.swiper = node.swiper;
           }}
         >
-          <div>Slide 1</div>
-          <div>Slide 2</div>
-          <div>Slide 3</div>
-          <div>Slide 4</div>
-          <div>Slide 5</div>
+          {widgetBlocs.map(bloc => (
+            <SwiperSlide key={uuid()}>
+              <WidgetCustomBloc {...bloc} />
+            </SwiperSlide>
+          ))}
         </Swiper>
-        <Footer />
+        <WidgetFooter />
       </div>
     );
   }
@@ -79,4 +128,4 @@ class Widget extends React.Component {
 /**
  * Export
  */
-export default Widget;
+export default withRouter(Widget);

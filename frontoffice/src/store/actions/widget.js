@@ -1,13 +1,13 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
 
-// Api Types
+// Widget Types
 export const LOAD_DATA = 'LOAD_DATA';
 
-// api actions
-const loadData = data => ({
+// widget action
+const loadData = apiExampleData => ({
   type: LOAD_DATA,
-  data,
+  apiExampleData,
 });
 
 export const apiCall = () => {

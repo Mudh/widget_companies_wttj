@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import app from './app';
-import api from './api';
+import widget from './widget';
 
 export default combineReducers({
-  app,
-  api,
+  widget,
 });

@@ -3,10 +3,15 @@
 @import "../../styles/colors";
 
 .widget {
-  width: 100%;
   background-color: $backgroundColor;
   color: $textColor;
 
+  // Widget Max large size ****************************************************************
+  @media #{$large} {
+    max-width: 1280px;
+  }
+
+  // Widget header **********************************************************************
   &__header {
     display: flex;
     justify-content: space-between;
@@ -15,7 +20,11 @@
   }
 
   &__title {
-    font-size: 1.1875rem;
+    font-size: 0.85rem;
+
+    @media #{$small} {
+      font-size: 1.1875rem;
+    }
   }
 
   &__company-link {
@@ -34,6 +43,7 @@
     display: flex;
   }
 
+  // Widget footer **********************************************************************
   &__footer {
     display: flex;
     justify-content: space-between;
@@ -51,7 +61,11 @@
   &__profil-link {
     display: flex;
     align-items: center;
-    font-size: rem(14.5);
+    font-size: rem(12);
+
+    @media #{$small} {
+      font-size: rem(14.5);
+    }
 
     span {
       margin-right: rem(8);
@@ -71,12 +85,165 @@
     }
   }
 
-  .swiper-pagination-progressbar {
-    height: 4px;
-    background-color: $profilLinkHover;
+  // Widget blocs **********************************************************************
+  &__custom-bloc {
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 
-  @media #{$large} {
-    max-width: 1280px;
+  &__bloc--image,
+  &__bloc--video,
+  &__bloc--quote {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__bloc--image,
+  &__bloc--video {
+    &::after {
+      position: absolute;
+      top: 30%;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      opacity: 0;
+      content: " ";
+      z-index: 2;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+      transition: all 0.3s cubic-bezier(0.41, 0.094, 0.54, 0.07) 0s;
+    }
+
+    // Custom blocs - widget blocs children ***********************************************
+
+    div:first-child {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transform: scale(1);
+      transition: all 0.3s cubic-bezier(0.41, 0.094, 0.54, 0.07) 0s;
+    }
+
+    .bloc__image {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+      z-index: 2;
+      transition: all 0.2s cubic-bezier(0.41, 0.094, 0.54, 0.07) 0s;
+      transform: scale3d(0, 0, 1);
+    }
+
+    .bloc__video {
+      display: flex;
+      position: absolute;
+      align-items: center;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+      box-sizing: border-box;
+      z-index: 3;
+
+      h3 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.8125rem;
+        margin-top: 0.3rem;
+      }
+    }
+
+    &:hover {
+      div:first-child {
+        transform: scale(1.05);
+        transform-origin: center center;
+      }
+
+      .bloc__image {
+        transform: scale3d(1, 1, 1);
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__bloc--quote {
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      opacity: 0;
+      content: " ";
+      z-index: 2;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+      transition: all 0.3s cubic-bezier(0.41, 0.094, 0.54, 0.07) 0s;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    // Custom quote bloc **************************************************************
+    .bloc__quote {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+
+      p {
+        line-height: 1.4;
+      }
+    }
+  }
+
+  // Swiper override *******************************************************************
+  .swiper-container {
+    position: relative;
+    background-color: $darkGreyWttj;
+    overflow: hidden;
+    height: 700px;
+  }
+
+  .swiper-pagination-progressbar {
+    position: absolute;
+    top: auto;
+    left: 0;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    bottom: 0;
+  }
+
+  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: $profilLinkHover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: left top;
   }
 }

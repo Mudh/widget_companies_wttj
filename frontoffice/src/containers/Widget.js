@@ -2,15 +2,14 @@
 import { connect } from 'react-redux';
 
 // component
-import AppComponent from '../components/App';
+import WidgetComponent from '../components/Widget';
 
-// actions
-import { changeMessage, apiCall } from '../store/actions';
+// Actions
+import { apiCall } from '../store/actions';
 
 // === State (données) ===
 const mapStateToProps = state => ({
-  message: state.app.message,
-  data: state.api.data,
+  dataCompany: state.widget.dataCompany,
 });
 
 // === Dispatch (actions) ===
@@ -18,16 +17,13 @@ const mapDispatchToProps = dispatch => ({
   apiCall: () => {
     dispatch(apiCall());
   },
-  onClickChangeMessage: () => {
-    dispatch(changeMessage('Hello John!'));
-  },
 });
 
 // Container - connect
-const App = connect(
+const Widget = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AppComponent);
+)(WidgetComponent);
 
 // Export
-export default App;
+export default Widget;
