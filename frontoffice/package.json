@@ -50,6 +50,7 @@
     "@babel/polyfill": "*",
     "axios": "*",
     "classnames": "*",
+    "html-react-parser": "^0.6.1",
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",

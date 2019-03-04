@@ -5,14 +5,8 @@ export default {
     {
       blocType: 'video',
       thumbnail: 'img1.jpg',
-    },
-    {
-      blocType: 'image',
-      thumbnail: 'img2.jpg',
-    },
-    {
-      blocType: 'image',
-      thumbnail: 'img3.jpg',
+      title: 'Bertrand Uzeel',
+      position: 'Co-Founder',
     },
     {
       blocType: 'image',
@@ -20,35 +14,51 @@ export default {
     },
     {
       blocType: 'image',
+      thumbnail: 'img2.jpg',
+    },
+    {
+      blocType: 'image',
       thumbnail: 'img5.jpg',
+    },
+    {
+      blocType: 'image',
+      thumbnail: 'img3.jpg',
     },
     {
       blocType: 'quote',
-      quote: "Toto va à l'école",
+      quote: 'Life is short,<br/>work somewhere awesome.',
+    },
+    {
+      blocType: 'image',
+      thumbnail: 'img6.jpg',
+    },
+    {
+      blocType: 'image',
+      thumbnail: 'img8.jpg',
     },
     {
       blocType: 'video',
-      thumbnail: 'img1.jpg',
+      thumbnail: 'img7.jpg',
+      title: 'Kevin Le Roy',
+      position: 'CTO',
     },
     {
       blocType: 'image',
-      thumbnail: 'img2.jpg',
+      thumbnail: 'img9.jpg',
     },
     {
       blocType: 'image',
-      thumbnail: 'img3.jpg',
+      thumbnail: 'img10.jpg',
+    },
+    {
+      blocType: 'video',
+      thumbnail: 'img12.jpg',
+      title: 'Elea Foucher-Creteau',
+      position: 'Content Manager',
     },
     {
       blocType: 'image',
-      thumbnail: 'img4.jpg',
-    },
-    {
-      blocType: 'image',
-      thumbnail: 'img5.jpg',
-    },
-    {
-      blocType: 'image',
-      thumbnail: 'img5.jpg',
+      thumbnail: 'img11.jpg',
     },
   ],
 };

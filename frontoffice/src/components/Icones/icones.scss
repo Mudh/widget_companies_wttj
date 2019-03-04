@@ -12,6 +12,8 @@
   height: 35px;
 
   &--play {
+    margin-right: 0.8125rem;
+
     svg {
       fill: $iconSvgWhite;
     }
@@ -27,6 +29,7 @@
   }
 
   &--quote {
+    margin-bottom: rem(18);
     background-color: transparent;
 
     svg {
