@@ -2,6 +2,7 @@
  * NPM import
  */
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 /**
  * Local import
  */
@@ -14,7 +15,9 @@ import './app.scss';
  */
 const App = () => (
   <div id="app">
-    <Widget />
+    <Router>
+      <Widget />
+    </Router>
   </div>
 );
 

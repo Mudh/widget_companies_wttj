@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Swiper from 'react-id-swiper';
 import uuid from 'uuid/v4';
+import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 /**
  * Local import
  */
@@ -23,6 +25,8 @@ class Widget extends React.Component {
   static propTypes = {
     dataCompany: PropTypes.object.isRequired,
     apiCall: PropTypes.func.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -40,8 +44,14 @@ class Widget extends React.Component {
 
       The widget data are store in redux but came from 'frontoffice/src/data/company.js'
     */
-    const { apiCall } = this.props;
+    const { apiCall, history, location } = this.props;
     apiCall();
+
+    // Push default column/row query on page load
+    const locationValue = location.search;
+    if (locationValue === '') {
+      history.push('/embed?columns=4&rows=2');
+    }
   }
 
   handleOnClickNext() {
@@ -53,11 +63,15 @@ class Widget extends React.Component {
   }
 
   render() {
-    const { dataCompany } = this.props;
+    const { dataCompany, location } = this.props;
     const { companyName, companyLogo, widgetBlocs } = dataCompany;
 
-    const row = 2;
-    const column = 3;
+    // Swiper columns and rows are manage by a simple query string
+    const query = queryString.parse(location.search);
+    const row = parseInt(query.rows, 10);
+    const column = parseInt(query.columns, 10);
+
+    // Swiper params
     const params = {
       speed: 1000,
       slidesPerView: column,
@@ -67,6 +81,16 @@ class Widget extends React.Component {
         el: '.swiper-pagination',
         type: 'progressbar',
         clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 1,
+        },
+        375: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+        },
       },
     };
 
@@ -104,4 +128,4 @@ class Widget extends React.Component {
 /**
  * Export
  */
-export default Widget;
+export default withRouter(Widget);
