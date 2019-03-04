@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import parse from 'html-react-parser';
 
 /**
@@ -14,58 +15,16 @@ import { PlayIcone, SearchIcone, QuoteIcone } from '../Icones';
  * Code
  */
 class WidgetCustomBloc extends React.Component {
-  customComponent = (type, style, title, position, quote) => {
+  customComponent = type => {
     switch (type) {
       case 'image': {
-        return (
-          <a
-            className="widget__bloc--image"
-            href="https://www.welcometothejungle.co/companies/wttj"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <div className="bloc__bg" style={style} />
-
-            <span className="bloc__image">
-              <SearchIcone />
-            </span>
-          </a>
-        );
+        return <SearchIcone />;
       }
       case 'video': {
-        return (
-          <a
-            className="widget__bloc--video"
-            href="https://www.welcometothejungle.co/companies/wttj"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <div className="bloc__bg" style={style} />
-
-            <span className="bloc__video">
-              <PlayIcone />
-              <span>
-                <h2>{title}</h2>
-                <p>{position}</p>
-              </span>
-            </span>
-          </a>
-        );
+        return <PlayIcone />;
       }
       case 'quote': {
-        return (
-          <a
-            className="widget__bloc--quote"
-            href="https://www.welcometothejungle.co/companies/wttj"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span className="bloc__quote">
-              <QuoteIcone />
-              <p>{parse(quote)}</p>
-            </span>
-          </a>
-        );
+        return <QuoteIcone />;
       }
       default:
         return null;
@@ -83,14 +42,40 @@ class WidgetCustomBloc extends React.Component {
       : null; // Return null to avoid render error
     /* eslint-enable global-require */
 
-    const blocStyle = {
-      background: `url(${thumbnailPath}) no-repeat center center/cover`,
-    };
+    // Use a styled component for dynamic css and avoid inline style
+    const Bg = styled.div`
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url(${thumbnailPath}) no-repeat center center/cover;
+      width: 100%;
+      height: 100%;
+    `;
+
+    // Parse html tag
+    const parsedQuote = parse(quote);
 
     return (
-      <div style={{ height: '100%', width: '100%' }}>
-        {this.customComponent(blocType, blocStyle, title, position, quote)}
-      </div>
+      <a
+        className={`widget__bloc--${blocType}`}
+        href="https://www.welcometothejungle.co/companies/wttj"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <Bg />
+        <span className={`bloc__${blocType}`}>
+          {this.customComponent(blocType)}
+
+          {blocType === 'video' && (
+            <span>
+              <h2>{title}</h2>
+              <p>{position}</p>
+            </span>
+          )}
+
+          {blocType === 'quote' && <p>{parsedQuote}</p>}
+        </span>
+      </a>
     );
   }
 }
@@ -105,8 +90,8 @@ WidgetCustomBloc.propTypes = {
 
 WidgetCustomBloc.defaultProps = {
   thumbnail: null,
-  title: 'John Doe',
-  position: 'CTO',
+  title: '',
+  position: '',
   quote: 'What a wonderfull world',
 };
 

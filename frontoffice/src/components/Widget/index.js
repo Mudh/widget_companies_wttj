@@ -2,9 +2,10 @@
  * NPM import
  */
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Swiper from 'react-id-swiper';
-import company from '../../data/company';
+import uuid from 'uuid/v4';
 /**
  * Local import
  */
@@ -19,10 +20,10 @@ import './widget.scss';
  * Code
  */
 class Widget extends React.Component {
-  // static propTypes = {
-  //   goNext: PropTypes.func.isRequired,
-  //   goPrev: PropTypes.func.isRequired,
-  // };
+  static propTypes = {
+    dataCompany: PropTypes.object.isRequired,
+    apiCall: PropTypes.func.isRequired,
+  };
 
   constructor(props) {
     super(props);
@@ -32,7 +33,15 @@ class Widget extends React.Component {
   }
 
   componentDidMount() {
-    console.log('cdm', company);
+    /* 
+      This is where we load API data 
+      and dispatch action to tell redux to store it 
+      It's a fake api coming from https://jsonplaceholder.typicode.com/
+
+      The widget data are store in redux but came from 'frontoffice/src/data/company.js'
+    */
+    const { apiCall } = this.props;
+    apiCall();
   }
 
   handleOnClickNext() {
@@ -44,7 +53,9 @@ class Widget extends React.Component {
   }
 
   render() {
-    const { companyName, companyLogo, widgetBlocs } = company;
+    const { dataCompany } = this.props;
+    const { companyName, companyLogo, widgetBlocs } = dataCompany;
+
     const row = 2;
     const column = 3;
     const params = {
@@ -59,9 +70,10 @@ class Widget extends React.Component {
       },
     };
 
-    const blocStyle = {
-      height: `calc(100% / ${row})`,
-    };
+    // Use a styled component for dynamic css and avoid inline style
+    const SwiperSlide = styled.div`
+      height: calc(100% / ${row});
+    `;
 
     return (
       <div className="widget">
@@ -78,9 +90,9 @@ class Widget extends React.Component {
           }}
         >
           {widgetBlocs.map(bloc => (
-            <div style={blocStyle}>
+            <SwiperSlide key={uuid()}>
               <WidgetCustomBloc {...bloc} />
-            </div>
+            </SwiperSlide>
           ))}
         </Swiper>
         <WidgetFooter />
