@@ -50,7 +50,7 @@ class Widget extends React.Component {
     // Push default column/row query on page load
     const locationValue = location.search;
     if (locationValue === '') {
-      history.push('/embed?columns=4&rows=2');
+      history.push('/embed?columns=3&rows=2');
     }
   }
 
@@ -68,8 +68,9 @@ class Widget extends React.Component {
 
     // Swiper columns and rows are manage by a simple query string
     const query = queryString.parse(location.search);
-    const row = parseInt(query.rows, 10);
-    const column = parseInt(query.columns, 10);
+    console.log('query', query);
+    const row = query.rows !== undefined ? parseInt(query.rows, 10) : 2;
+    const column = query.rows !== undefined ? parseInt(query.columns, 10) : 3;
 
     // Swiper params
     const params = {
