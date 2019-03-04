@@ -33,8 +33,18 @@ export default {
       thumbnail: 'img6.jpg',
     },
     {
+      blocType: 'video',
+      thumbnail: 'img12.jpg',
+      title: 'Elea Foucher-Creteau',
+      position: 'Content Manager',
+    },
+    {
       blocType: 'image',
       thumbnail: 'img8.jpg',
+    },
+    {
+      blocType: 'image',
+      thumbnail: 'img9.jpg',
     },
     {
       blocType: 'video',
@@ -44,17 +54,7 @@ export default {
     },
     {
       blocType: 'image',
-      thumbnail: 'img9.jpg',
-    },
-    {
-      blocType: 'image',
       thumbnail: 'img10.jpg',
-    },
-    {
-      blocType: 'video',
-      thumbnail: 'img12.jpg',
-      title: 'Elea Foucher-Creteau',
-      position: 'Content Manager',
     },
     {
       blocType: 'image',
