@@ -41,4 +41,6 @@ Vous pourrez par la suite modifier directement les paramètres de colonnes et de
 
 ## Notes d'intentions
 
-J'aurai aimé faire le widget en full "styled component" mais j'ai joué la sécurité et utilisé sass car je voulais me concentrer sur le reste du widget (j'en ai, tout de même, utilisé à 2 endroits). Pour allez plus loin j'aurai aimé utilisé une véritable API et pourquoi pas créer un formulaire ui (comme sur le site) au lieu de passer par l'url pour modifier le widget!
+J'aurai aimé faire le widget en full "styled component" mais j'ai joué la sécurité et utilisé sass car je voulais me concentrer sur le reste du widget (j'en ai, tout de même, utilisé à 2 endroits). Je n'ai juste pas pu utiliser la font originale "**HKCompakt**" car je ne l'ai pas trouvé en libre de droit, j'ai mis une helvetica classique.
+
+Pour allez plus loin j'aurai aimé utiliser une véritable API et pourquoi pas créer un formulaire ui (comme sur le site) au lieu de passer par l'url pour modifier le widget!
