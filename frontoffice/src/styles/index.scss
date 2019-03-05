@@ -1,6 +1,16 @@
 @import "reset";
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
-  background-color: #eaeaea;
+  background: url("../assets/jungle_bg.jpg") no-repeat center center / cover;
   font-family: Helvetica, sans-serif;
+}
+
+#root {
+  background: url("../assets/jungle_bg_pattern.png") repeat center center / 45px;
 }

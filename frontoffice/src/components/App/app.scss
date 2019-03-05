@@ -1,9 +1,11 @@
 @import "../../styles/mediaqueries";
 
 #app {
-  margin: 2em auto;
+  height: 100%;
 
   @media #{$large} {
-    max-width: 1280px;
+    margin: auto;
+    max-width: 1024px;
+    padding-top: 5rem;
   }
 }
