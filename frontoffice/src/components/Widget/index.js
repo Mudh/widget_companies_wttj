@@ -78,6 +78,11 @@ class Widget extends React.Component {
       slidesPerView: column,
       slidesPerGroup: column,
       slidesPerColumn: row,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      // loop: true,
       pagination: {
         el: '.swiper-pagination',
         type: 'progressbar',
